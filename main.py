@@ -1,8 +1,8 @@
 import math
 import matplotlib.pyplot as plt
 points = [(150, 4), (31, 8), (84, 1000), (100, 180), (37, 21), (15, 17)]
-plt.scatter([150, 31, 37, 84, 100, 15], [4, 8, 21, 1000, 180, 17])
-plt.show()
+# plt.scatter([150, 31, 37, 84, 100, 15], [4, 8, 21, 1000, 180, 17])
+# plt.show()
 
 def merge_sort(arr, coord):
     if len(arr) == 1:
@@ -18,33 +18,33 @@ def merge_sort(arr, coord):
     return cmbo
 
 
-def merge(A, B, coord):
+def merge(first_dist, sec_dist, coord):
     i = j = 0
-    C = []
+    empty_arr = []
 
     if coord == 'x':
         coord = 0
     elif coord == 'y':
         coord = 1
 
-    while i < len(A) and j < len(B):
-        if A[i][coord] <= B[j][coord]:
-            C.append(A[i])
+    while i < len(first_dist) and j < len(sec_dist):
+        if first_dist[i][coord] <= sec_dist[j][coord]:
+            empty_arr.append(first_dist[i])
             i += 1
 
-        elif B[j][coord] < A[i][coord]:
-            C.append(B[j])
+        elif sec_dist[j][coord] < first_dist[i][coord]:
+            empty_arr.append(sec_dist[j])
             j += 1
 
-    while i < len(A) and j == len(B):
-        C.append(A[i])
+    while i < len(first_dist) and j == len(sec_dist):
+        empty_arr.append(first_dist[i])
         i += 1
 
-    while j < len(B) and i == len(A):
-        C.append(B[j])
+    while j < len(sec_dist) and i == len(first_dist):
+        empty_arr.append(sec_dist[j])
         j += 1
 
-    return C
+    return empty_arr
 
 
 def first_sort(points):
