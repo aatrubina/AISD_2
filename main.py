@@ -1,8 +1,8 @@
 import math
 import matplotlib.pyplot as plt
 points = [(150, 4), (31, 8), (84, 1000), (100, 180), (37, 21), (15, 17)]
-# plt.scatter([150, 31, 37, 84, 100, 15], [4, 8, 21, 1000, 180, 17])
-# plt.show()
+plt.scatter([150, 31, 37, 84, 100, 15], [4, 8, 21, 1000, 180, 17])
+plt.show()
 
 def merge_sort(arr, coord):
     if len(arr) == 1:
